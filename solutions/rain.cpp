@@ -1,7 +1,8 @@
 // Extreme weather events such as extraordinary rainfall are increasingly
 // frequent and intense all around the world.
 // The National Monitoring Center of Nlogônia has day-to-day rain gauges
-// scattered throughout the kingdom. Each measurement is an integer, indicating // the amount of rain, in millimeters, which fell in Nlogonia on a given day.
+// scattered throughout the kingdom. Each measurement is an integer, indicating
+// the amount of rain, in millimeters, which fell in Nlogonia on a given day.
 // As the system has been in existence for several years, the measurement list
 // is too long.
 // Concerned about the matter, the king of Nlogonia ordered the Minister of
@@ -28,37 +29,37 @@
 #include <iostream>
 
 int main() {
-	uint32_t N, S;
+  uint32_t N, S;
 
-	std::cin >> N >> S;
+  std::cin >> N >> S;
 
-	uint32_t measurements[N];
+  uint32_t measurements[N];
 
-	for (auto i = 0; i < N; i++) {
-		std::cin >> measurements[i];
-	}
+  for (auto i = 0; i < N; i++) {
+    std::cin >> measurements[i];
+  }
 
-	auto equals = 0;
+  auto equals = 0;
 
-	for (auto i = 0; i < N; i++) {
-		auto sum = 0;
+  for (auto i = 0; i < N; i++) {
+    auto sum = 0;
 
-		for (auto j = i; j < N; j++) {
-			sum += measurements[j];
+    for (auto j = i; j < N; j++) {
+      sum += measurements[j];
 
-			if (sum == S) {
-				equals++;
-			} else if (sum > S) {
-				break;
-			}
-		}
+      if (sum == S) {
+        equals++;
+      } else if (sum > S) {
+        break;
+      }
+    }
 
-		// If the sum of all numbers from i to N is less than S, then the sum from
-		// i+1 to N will be less than S, as the numbers are non-negative.
-		if (sum < S) {
-			break;
-		}
-	}
+    // If the sum of all numbers from i to N is less than S, then the sum from
+    // i+1 to N will be less than S, as the numbers are non-negative.
+    if (sum < S) {
+      break;
+    }
+  }
 
-	std::cout << equals << "\n";
+  std::cout << equals << "\n";
 }

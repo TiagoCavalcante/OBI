@@ -32,47 +32,47 @@
 #include <iostream>
 
 struct {
-	char figure;
-	char suit;
+  char figure;
+  char suit;
 } player;
 
 int getSum(char dominantSuit) {
-	int sum = 0;
+  int sum = 0;
 
-	for (int i = 0; i < 3; i++) {
-		std::cin >> player.figure >> player.suit;
+  for (int i = 0; i < 3; i++) {
+    std::cin >> player.figure >> player.suit;
 
-		bool isDominant = player.suit == dominantSuit;
+    bool isDominant = player.suit == dominantSuit;
 
-		if (player.figure == 'A') {
-			sum += isDominant ? 14 : 10;
-		} else if(player.figure == 'J') {
-			sum += isDominant ? 15 : 11;
-		} else if(player.figure == 'Q') {
-			sum += isDominant ? 16 : 12;
-		} else { // K
-			sum += isDominant ? 17 : 13;
-		}
-	}
+    if (player.figure == 'A') {
+      sum += isDominant ? 14 : 10;
+    } else if (player.figure == 'J') {
+      sum += isDominant ? 15 : 11;
+    } else if (player.figure == 'Q') {
+      sum += isDominant ? 16 : 12;
+    } else {  // K
+      sum += isDominant ? 17 : 13;
+    }
+  }
 
-	return sum;
+  return sum;
 }
 
 int main() {
-	char dominantSuit;
+  char dominantSuit;
 
-	// Discard the first value as the user is going to pass the suit after the
-	// the figure, but the figure doesn't matter.
-	std::cin >> dominantSuit >> dominantSuit;
+  // Discard the first value as the user is going to pass the suit after the
+  // the figure, but the figure doesn't matter.
+  std::cin >> dominantSuit >> dominantSuit;
 
-	auto Luana = getSum(dominantSuit);
-	auto Ed = getSum(dominantSuit);
+  auto Luana = getSum(dominantSuit);
+  auto Ed = getSum(dominantSuit);
 
-	if (Luana > Ed) {
-		std::cout << "Luana" << "\n";
-	} else if (Ed > Luana) {
-		std::cout << "Ed" << "\n";
-	} else {
-		std::cout << "tie" << "\n";
-	}
+  if (Luana > Ed) {
+    std::cout << "Luana" << "\n";
+  } else if (Ed > Luana) {
+    std::cout << "Ed" << "\n";
+  } else {
+    std::cout << "tie" << "\n";
+  }
 }
